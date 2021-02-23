@@ -4,16 +4,16 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
-import useSWR from "swr";
+import { useEffect, useState } from "react";
+import { useFetch } from "../lib/hooks";
 
 export default function Home({ allPostsData }) {
-  const { data, error } = useSWR("/api/hello", fetch);
-  console.log(data);
+  const data = useFetch("/api/hello");
   return (
     <Layout home>
       <Head>
         <title>
-          {siteTitle}-{!data ? "loading" : data}
+          {siteTitle}-{!data ? "loading" : data.text}
         </title>
       </Head>
       <section className={utilStyles.headingMd}>
@@ -46,11 +46,13 @@ export default function Home({ allPostsData }) {
     </Layout>
   );
 }
-export async function getStaticProps() {
+export async function getStaticProps(context) {
+  // console.log(context);
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
+    revalidate: 10,
   };
 }
