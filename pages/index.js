@@ -24,7 +24,7 @@ export default function Home({ allPostsData }) {
             console.log(data);
           }}
         >
-          调用api/hello
+          调用api / hello
         </button>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
