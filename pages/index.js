@@ -4,12 +4,17 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import useSWR from "swr";
 
 export default function Home({ allPostsData }) {
+  const { data, error } = useSWR("/api/hello", fetch);
+  console.log(data);
   return (
     <Layout home>
       <Head>
-        <title>{siteTitle}</title>
+        <title>
+          {siteTitle}-{!data ? "loading" : data}
+        </title>
       </Head>
       <section className={utilStyles.headingMd}>
         <button
