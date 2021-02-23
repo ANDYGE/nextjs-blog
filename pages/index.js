@@ -53,6 +53,6 @@ export async function getStaticProps(context) {
     props: {
       allPostsData,
     },
-    revalidate: 10,
+    // revalidate: 10,
   };
 }
