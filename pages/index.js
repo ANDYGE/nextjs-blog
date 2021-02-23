@@ -4,7 +4,6 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
-import { useEffect, useState } from "react";
 import { useFetch } from "../lib/hooks";
 
 export default function Home({ allPostsData }) {
