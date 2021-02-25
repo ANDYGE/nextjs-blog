@@ -5,7 +5,7 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import { useFetch } from "../lib/hooks";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 export default function Home({ allPostsData }) {
   const data = useFetch("/api/hello");
@@ -48,12 +48,12 @@ export default function Home({ allPostsData }) {
           background: lightblue;
         }
       `}</style>
-       <Image
+       {/* <Image
         src="/images/sunset.jpeg"
         alt="Picture of the author"
         width={500}
         height={300}
-      />
+      /> */}
     </Layout>
   );
 }
